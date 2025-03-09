@@ -26,6 +26,19 @@
  * @param text The string to be reversed
  * @return The reversed string
  */
+
+
+//SOLUTION[1]
 String reverseString(String text) {
   return text.split('').reduce((element, char) => char + element);
+}
+
+
+//SOLUTION[2]
+String reverseString(String text) {
+  String reversed = '';
+  for (var char in text.split('')) {
+    reversed = reversed + char;
+  }
+  return reversed;
 }
