@@ -42,3 +42,12 @@ String reverseString(String text) {
   }
   return reversed;
 }
+
+//SOLUTION[3]
+String reverseString(String text) {
+  String reversed = '';
+  for (var i = 0; i <= text.length - 1; i++) {
+    reversed = text[i] + reversed;
+  }
+  return reversed;
+}
