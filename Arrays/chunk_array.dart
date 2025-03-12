@@ -43,3 +43,19 @@ List<List<int>> chunkSize(List<int> numbersList, int length) {
   // Return the chunked array
   return output;
 }
+
+
+//SOLUTION[2]
+
+List<List<int>> chunkSize(List<int> numbersList, int length) {
+  List<List<int>> output = [];
+
+  for (int i = 0; i < numbersList.length; i += length) {
+    // Get a slice (sublist) of the original list
+    output.add(numbersList.sublist(
+        i, i + length > numbersList.length ? numbersList.length : i + length));
+  }
+
+  return output;
+}
+
