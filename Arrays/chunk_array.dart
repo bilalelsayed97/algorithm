@@ -59,3 +59,17 @@ List<List<int>> chunkSize(List<int> numbersList, int length) {
   return output;
 }
 
+//SOLUTION[3]
+List<List<T>> chunkSize<T>(List<T> array, int size) {
+  List<List<T>> output = [];
+  int index = 0;
+
+  while (index < array.length) {
+    int end = (index + size).clamp(0, array.length);
+    output.add(array.slice(index, end));
+    index += size;
+  }
+
+  return output;
+}
+
