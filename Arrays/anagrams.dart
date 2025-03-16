@@ -8,6 +8,47 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+//SOLUTION[1]
+bool check(String first, String secound) {
+  List<String> text1 =
+      first.replaceAll(RegExp(r'[^a-zA-Z]'), '').toLowerCase().split('');
+
+  List<String> text2 =
+      secound.replaceAll(RegExp(r'[^a-zA-Z]'), '').toLowerCase().split('');
+
+  Map<String, int> text1Map = {};
+  Map<String, int> text2Map = {};
+
+  if (text1.length == text2.length) {
+    for (var letter in text1) {
+      if (text1Map.containsKey(letter)) {
+        text1Map[letter] = text1Map[letter]! + 1;
+      } else {
+        text1Map.addAll({letter: 1});
+      }
+    }
+
+    for (var letter in text2) {
+      if (text2Map.containsKey(letter)) {
+        text2Map[letter] = text2Map[letter]! + 1;
+      } else {
+        text2Map.addAll({letter: 1});
+      }
+    }
+
+    for (var key in text1Map.keys) {
+      if (!text2Map.containsKey(key)) return false;
+
+      if (text1Map[key] != text2Map[key]) return false;
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//SOLUTION[2]
 bool anagrams(String first, String secound) {
   // Convert first string to lowercase, remove non-alphabetic characters,
   // split into individual characters, and sort alphabetically
