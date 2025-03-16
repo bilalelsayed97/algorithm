@@ -8,7 +8,25 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+
 //SOLUTION[1]
+bool anagrams(String first, String secound) {
+  List<String> text1 = first
+      .replaceAll(RegExp(r'[^a-zA-Z]'), '')
+      .toLowerCase()
+      .split('')
+    ..sort((a, b) => a.compareTo(b));
+
+  List<String> text2 = secound
+      .replaceAll(RegExp(r'[^a-zA-Z]'), '')
+      .toLowerCase()
+      .split('')
+    ..sort((a, b) => a.compareTo(b));
+  return text1.join() == text2.join();
+}
+
+
+//SOLUTION[2]
 bool check(String first, String secound) {
   List<String> text1 =
       first.replaceAll(RegExp(r'[^a-zA-Z]'), '').toLowerCase().split('');
@@ -48,7 +66,7 @@ bool check(String first, String secound) {
   }
 }
 
-//SOLUTION[2]
+//SOLUTION[3]
 bool anagrams(String first, String secound) {
   // Convert first string to lowercase, remove non-alphabetic characters,
   // split into individual characters, and sort alphabetically
